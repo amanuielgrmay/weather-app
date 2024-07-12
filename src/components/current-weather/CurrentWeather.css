@@ -1,0 +1,28 @@
+.top-center {
+  display: flex;
+  justify-content: space-between;
+}
+.weather p,
+span {
+  color: #3e3e3e;
+}
+
+.top-details {
+  display: flex;
+  justify-content: center;
+}
+.top-details_second {
+  place-content: center;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.top-details_second img {
+  height: 20px;
+}
+.top-details_second .row {
+  padding-left: 25px;
+}
+.top-details_second .details-wind {
+  margin-left: 20px;
+}

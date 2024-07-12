@@ -11,28 +11,47 @@ const Search = ({ onSearchChange }) => {
   };
 
   const loadOptions = (inputValue) => {
+    if (!inputValue) {
+      return Promise.resolve({
+        options: [],
+        hasMore: false,
+      });
+    }
+
     return fetch(
       `${GEO_API_URL}cities?minPopulation=100000&namePrefix=${inputValue}`,
       geoApiOptions
     )
       .then((response) => response.json())
       .then((response) => {
+        if (!response || !response.data) {
+          return {
+            options: [],
+            hasMore: false,
+          };
+        }
+
         return {
-          options: response.data.map((city) => {
-            return {
-              value: `${city.latitude} ${city.longitude}`,
-              label: `${city.name}, ${city.countryCode}`,
-            };
-          }),
+          options: response.data.map((city) => ({
+            value: `${city.latitude} ${city.longitude}`,
+            label: `${city.name}, ${city.countryCode}`,
+          })),
+          hasMore: false,
         };
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        return {
+          options: [],
+          hasMore: false,
+        };
+      });
   };
 
   return (
     <div>
       <AsyncPaginate
-        placeholder="Search For City To Know Its Weather"
+        placeholder="Search For City"
         debounceTimeout={600}
         value={search}
         onChange={handleOnChange}

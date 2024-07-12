@@ -1,0 +1,109 @@
+/* Forecast.css */
+.accordion {
+  display: flex;
+  font-size: 16px;
+  position: relative;
+  right: 30px;
+  padding: 0px;
+  gap: 10px;
+}
+.title {
+  font-size: 31px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  opacity: 0.7;
+}
+.accordion-item {
+  gap: 40px;
+  box-sizing: border-box;
+  margin-bottom: 60px;
+  border: 1px solid #c7c7c7;
+  padding: 30px 20px;
+  border-radius: 20px;
+  flex: 1 1 calc(33.333% - 24px); /* Make items responsive */
+}
+
+.details-grid,
+.accordion-item-button {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item .day {
+  font-size: 21px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+/* Adjustments for large screens */
+@media (max-width: 1540px) {
+  .accordion {
+    font-size: 13px;
+  }
+  .item .day {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+  .accordion-item {
+    gap: 30px;
+  }
+}
+@media (max-width: 1330px) {
+  .accordion {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+/* Adjustments for medium screens */
+@media (max-width: 1024px) {
+  .accordion {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .accordion-item {
+    flex: 1 1 calc(50% - 24px); /* Adjust to take half of the container */
+    margin-bottom: 16px; /* Add space between items */
+  }
+}
+
+@media (max-width: 768px) {
+  .accordion {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 11px;
+    position: relative;
+    right: 0px;
+    top: 100px;
+    margin-bottom: 65px;
+  }
+  .item .day {
+    font-size: 15px;
+  }
+  .accordion-item {
+    flex: 1 1 calc(50% - 24px); /* Adjust to take half of the container */
+    margin-bottom: 16px; /* Add space between items */
+    background: contain 100vh;
+  }
+  .title {
+    position: relative;
+    top: 100px;
+  }
+}
+
+/* Adjustments for extra small screens */
+@media (max-width: 480px) {
+  .accordion {
+    font-size: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .item .day {
+    font-size: 12px;
+  }
+  .accordion-item {
+    padding: 10px;
+  }
+}
